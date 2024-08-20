@@ -1,7 +1,7 @@
 return {
   {
     "L3MON4D3/LuaSnip",
-    lazy = true, -- we let nvim-cmp load this too
+    lazy = false, -- we let nvim-cmp load this too
     dependencies = {
       "rafamadriz/friendly-snippets",
       "saadparwaiz1/cmp_luasnip",
@@ -10,6 +10,8 @@ return {
     },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "../../snippets" } })
+      require('luasnip').filetype_extend("javascript", { "javascriptreact", "html" })
     end,
   },
   {
